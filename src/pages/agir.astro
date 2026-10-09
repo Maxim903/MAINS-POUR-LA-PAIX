@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+---
+<BaseLayout title="Agir">
+  <article class="mx-auto max-w-6xl px-6 pt-16 prose-site">
+    <h1 class="text-4xl font-semibold md:text-5xl">Agir avec nous</h1>
+    <h2>Faire un don</h2>
+    {site.donateUrl
+      ? <p><a href={site.donateUrl} class="btn btn-dark no-underline">Faire un don</a></p>
+      : <p>Le don en ligne ouvrira prochainement.</p>}
+    <p class="text-sm">Ne mentionnez la déductibilité fiscale qu'une fois la capacité à délivrer des reçus fiscaux confirmée par l'administration.</p>
+    <h2>Adhérer</h2>
+    {site.joinUrl
+      ? <p><a href={site.joinUrl} class="btn btn-dark no-underline">Adhérer à l'association</a></p>
+      : <p>Les adhésions ouvriront prochainement.</p>}
+    <h2>Devenir bénévole</h2>
+    <p>Écrivez-nous à <a href={`mailto:${site.email}`}>{site.email}</a> en précisant vos compétences et votre disponibilité.</p>
+  </article>
+</BaseLayout>

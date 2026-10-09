@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const axes = (await getCollection('axes')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(axes.map(async (a) => ({ a, Content: (await render(a)).Content })));
+---
+<BaseLayout title="Nos actions">
+  <div class="mx-auto max-w-6xl px-6 pt-16">
+    <h1 class="text-4xl font-semibold md:text-5xl">Nos actions</h1>
+    {rendered.map(({ a, Content }) => (
+      <section class="mt-14 border-l-2 border-olive pl-6 prose-site">
+        <h2 class="text-3xl font-semibold">{a.data.title}</h2>
+        <Content />
+      </section>
+    ))}
+  </div>
+</BaseLayout>

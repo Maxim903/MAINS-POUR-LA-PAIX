@@ -1,0 +1,17 @@
+---
+import site from '../data/site.json';
+import { getT, prefix, type Lang } from '../i18n/utils';
+const { lang = 'fr' } = Astro.props as { lang?: Lang };
+const t = getT(lang), p = prefix(lang);
+---
+<section class="mx-auto mt-24 max-w-6xl px-6">
+  <div class="bg-brume p-8 md:p-12">
+    <h2 class="text-3xl font-semibold">{t.cta.title}</h2>
+    <p class="mt-4 max-w-2xl">{t.cta.text}</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href={site.donateUrl || `${p}/agir`} class="btn btn-dark">{t.cta.donate}</a>
+      <a href={site.joinUrl || `${p}/agir`} class="btn btn-dark">{t.cta.join}</a>
+      <a href={`${p}/contact`} class="btn border border-nuit">{t.cta.contact}</a>
+    </div>
+  </div>
+</section>

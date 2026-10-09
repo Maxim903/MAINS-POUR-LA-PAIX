@@ -1,0 +1,22 @@
+---
+import site from '../data/site.json';
+import { getT, prefix, type Lang } from '../i18n/utils';
+const { lang = 'fr' } = Astro.props as { lang?: Lang };
+const t = getT(lang), p = prefix(lang);
+const links = [
+  ['mission', `${p}/mission`], ['actions', `${p}/actions`], ['publications', `${p}/publications`],
+  ['actualites', `${p}/actualites`], ['agir', `${p}/agir`], ['contact', `${p}/contact`],
+] as const;
+const other = lang === 'fr' ? { href: '/en/', label: 'English', code: 'en' } : { href: '/', label: 'Français', code: 'fr' };
+---
+<header class="bg-nuit text-white">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+    <a href={p || '/'} class="font-serif text-xl font-semibold">{site.name}</a>
+    <nav aria-label="Navigation principale">
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        {links.map(([k, href]) => <li><a href={href} class="hover:text-ambre">{t.nav[k]}</a></li>)}
+        <li><a href={other.href} lang={other.code} hreflang={other.code} class="text-ambre">{other.label}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

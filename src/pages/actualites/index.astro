@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fmtDate } from '../../i18n/utils';
+const news = (await getCollection('actualites', ({ data }) => !data.draft)).sort((a, b) => +b.data.date - +a.data.date);
+---
+<BaseLayout title="Actualités">
+  <div class="mx-auto max-w-6xl px-6 pt-16">
+    <h1 class="text-4xl font-semibold md:text-5xl">Actualités</h1>
+    <ul class="mt-8 divide-y divide-nuit/15">
+      {news.map((n) => (
+        <li class="py-5">
+          <p class="text-sm text-nuit/70">{fmtDate(n.data.date)}</p>
+          <h2 class="mt-1 text-xl font-semibold"><a href={`/actualites/${n.id}`} class="underline decoration-ambre underline-offset-4">{n.data.title}</a></h2>
+          <p class="mt-2 max-w-3xl">{n.data.summary}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

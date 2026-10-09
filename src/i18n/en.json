@@ -1,0 +1,13 @@
+{
+  "lang": "en",
+  "nav": { "mission": "Mission", "actions": "Actions", "publications": "Publications", "actualites": "News", "agir": "Get involved", "contact": "Contact" },
+  "hero": {
+    "title": "Protecting health in times of war",
+    "text": "We document attacks on hospitals, health workers and patients, support health systems in conflict zones and promote the humanitarian law that protects them.",
+    "cta1": "Our work",
+    "cta2": "Support us"
+  },
+  "sections": { "axes": "Three areas of work", "latest": "Latest publications", "news": "News", "none": "No publications yet. The first ones will appear soon.", "all": "All publications" },
+  "cta": { "title": "Join us", "text": "Donate, become a member or help us raise awareness of health protection in conflict.", "donate": "Donate", "join": "Join", "contact": "Contact us" },
+  "footer": { "legal": "Legal notice", "privacy": "Privacy", "rights": "French non-profit (loi 1901)" }
+}

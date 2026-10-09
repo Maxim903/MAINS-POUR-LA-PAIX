@@ -1,0 +1,18 @@
+---
+import { getT, prefix, type Lang } from '../i18n/utils';
+import site from '../data/site.json';
+const { lang = 'fr' } = Astro.props as { lang?: Lang };
+const t = getT(lang), p = prefix(lang);
+---
+<section class="bg-nuit text-white">
+  <div class="mx-auto max-w-6xl px-6 py-20 md:py-32">
+    <div class="border-l-4 border-ambre pl-6 md:pl-10">
+      <h1 class="max-w-4xl text-5xl font-semibold md:text-7xl">{t.hero.title}</h1>
+      <p class="mt-8 max-w-2xl text-lg text-white/85">{t.hero.text}</p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href={`${p}/actions`} class="btn btn-primary">{t.hero.cta1}</a>
+        <a href={site.donateUrl || `${p}/agir`} class="btn btn-ghost">{t.hero.cta2}</a>
+      </div>
+    </div>
+  </div>
+</section>

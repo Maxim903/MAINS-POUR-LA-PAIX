@@ -1,0 +1,13 @@
+---
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '#';
+---
+<form action={endpoint} method="POST" class="grid max-w-xl gap-4">
+  <label class="grid gap-1">Nom
+    <input name="name" required autocomplete="name" class="border border-nuit/40 bg-white p-3" /></label>
+  <label class="grid gap-1">Adresse email
+    <input type="email" name="email" required autocomplete="email" class="border border-nuit/40 bg-white p-3" /></label>
+  <label class="grid gap-1">Message
+    <textarea name="message" rows="6" required class="border border-nuit/40 bg-white p-3"></textarea></label>
+  <p class="text-sm text-nuit/70">N'envoyez pas de témoignage sensible via ce formulaire (voir ci-dessus).</p>
+  <button class="btn btn-dark w-fit" type="submit">Envoyer le message</button>
+</form>

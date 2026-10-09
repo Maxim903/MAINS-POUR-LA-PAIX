@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nuit: #12263a;
+  --color-brume: #eef2f5;
+  --color-papier: #fbfcfd;
+  --color-olive: #3f7d58;
+  --color-ambre: #e0a526;
+  --font-serif: "Newsreader Variable", Georgia, serif;
+  --font-sans: "Public Sans Variable", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body { @apply bg-papier text-nuit font-sans antialiased; line-height: 1.65; }
+h1, h2, h3 { @apply font-serif; line-height: 1.12; letter-spacing: -0.01em; }
+:focus-visible { outline: 3px solid var(--color-ambre); outline-offset: 3px; }
+
+.prose-site { max-width: 68ch; }
+.prose-site p { margin-block: 1em; }
+.prose-site h2 { font-size: 1.6rem; margin-top: 2em; }
+.prose-site a { @apply underline text-olive; }
+
+.btn { @apply inline-block rounded-sm px-5 py-3 font-semibold; }
+.btn-primary { @apply bg-ambre text-nuit hover:bg-white; }
+.btn-ghost { @apply border border-white/60 text-white hover:bg-white/10; }
+.btn-dark { @apply bg-nuit text-white hover:bg-olive; }

@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import { getT, prefix, type Lang } from '../i18n/utils';
+const { lang = 'fr' } = Astro.props as { lang?: Lang };
+const t = getT(lang);
+const axes = (await getCollection('axes')).sort((a, b) => a.data.order - b.data.order);
+---
+<section class="mx-auto max-w-6xl px-6 pt-20">
+  <h2 class="text-3xl font-semibold md:text-4xl">{t.sections.axes}</h2>
+  <div class="mt-10 grid gap-10 md:grid-cols-3">
+    {axes.map((a) => (
+      <article class="border-l-2 border-olive pl-5">
+        <h3 class="text-xl font-semibold">{a.data.title}</h3>
+        <p class="mt-3 text-nuit/80">{a.data.summary}</p>
+      </article>
+    ))}
+  </div>
+</section>

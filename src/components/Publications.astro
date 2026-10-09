@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import { getT, fmtDate, prefix, type Lang } from '../i18n/utils';
+const { lang = 'fr', limit } = Astro.props as { lang?: Lang; limit?: number };
+const t = getT(lang);
+let items = (await getCollection('publications', ({ data }) => !data.draft)).sort((a, b) => +b.data.date - +a.data.date);
+if (limit) items = items.slice(0, limit);
+const labels = { rapport: 'Rapport', fiche: 'Fiche', communique: 'Communiqué' };
+---
+{items.length === 0 ? <p class="text-nuit/70">{t.sections.none}</p> : (
+  <ul class="divide-y divide-nuit/15">
+    {items.map((p) => (
+      <li class="py-5">
+        <p class="text-sm text-nuit/70">{labels[p.data.type]} · {fmtDate(p.data.date, lang)}{p.data.country ? ` · ${p.data.country}` : ''}</p>
+        <h3 class="mt-1 text-xl font-semibold">{p.data.pdf ? <a href={p.data.pdf} class="underline decoration-ambre underline-offset-4">{p.data.title}</a> : p.data.title}</h3>
+        <p class="mt-2 max-w-3xl">{p.data.summary}</p>
+      </li>
+    ))}
+  </ul>
+)}

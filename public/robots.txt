@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mainspourlapaix.org/sitemap-index.xml

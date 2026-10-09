@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+---
+<BaseLayout title="Confidentialité">
+  <article class="mx-auto max-w-6xl px-6 pt-16 prose-site">
+    <h1 class="text-4xl font-semibold">Politique de confidentialité</h1>
+    <p>Ce site n'utilise pas de cookies de suivi. Si des statistiques de fréquentation sont activées, elles sont anonymes et sans cookies.</p>
+    <h2>Données que vous nous transmettez</h2>
+    <p>Les informations saisies dans le formulaire de contact (nom, email, message) servent uniquement à vous répondre. Elles sont transmises au prestataire de formulaire choisi par l'association : <em>à compléter avec son nom</em>.</p>
+    <h2>Vos droits</h2>
+    <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  </article>
+</BaseLayout>

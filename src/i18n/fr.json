@@ -1,0 +1,13 @@
+{
+  "lang": "fr",
+  "nav": { "mission": "Mission", "actions": "Actions", "publications": "Publications", "actualites": "Actualités", "agir": "Agir", "contact": "Contact" },
+  "hero": {
+    "title": "Protéger la santé en temps de guerre",
+    "text": "Nous documentons les attaques contre les hôpitaux, les soignants et les patients, nous soutenons les systèmes de santé des zones de conflit et nous faisons connaître le droit humanitaire qui les protège.",
+    "cta1": "Découvrir nos actions",
+    "cta2": "Soutenir l'association"
+  },
+  "sections": { "axes": "Trois axes d'action", "latest": "Dernières publications", "news": "Actualités", "none": "Aucune publication pour le moment. Les premières paraîtront bientôt.", "all": "Voir toutes les publications" },
+  "cta": { "title": "Rejoignez-nous", "text": "Faites un don, adhérez ou aidez-nous à faire connaître la protection de la santé dans les conflits.", "donate": "Faire un don", "join": "Adhérer", "contact": "Nous écrire" },
+  "footer": { "legal": "Mentions légales", "privacy": "Confidentialité", "rights": "Association loi 1901" }
+}

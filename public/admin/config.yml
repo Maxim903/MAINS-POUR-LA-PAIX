@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: VOTRE-COMPTE/mains-pour-la-paix   # à remplacer
+  branch: main
+  base_url: https://REMPLACER-oauth.workers.dev  # proxy OAuth, voir README
+media_folder: public/images/uploads
+public_folder: /images/uploads
+locale: fr
+
+collections:
+  - name: actualites
+    label: Actualités
+    folder: src/content/actualites
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { name: title, label: Titre, widget: string }
+      - { name: date, label: Date, widget: datetime, time_format: false }
+      - { name: summary, label: Résumé (1-2 phrases), widget: text }
+      - { name: draft, label: Brouillon, widget: boolean, default: false }
+      - { name: body, label: Texte, widget: markdown }
+
+  - name: publications
+    label: Publications
+    folder: src/content/publications
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { name: title, label: Titre, widget: string }
+      - { name: date, label: Date, widget: datetime, time_format: false }
+      - { name: type, label: Type, widget: select, options: [rapport, fiche, communique] }
+      - { name: country, label: Pays ou zone, widget: string, required: false }
+      - { name: summary, label: Résumé, widget: text }
+      - { name: pdf, label: Fichier PDF, widget: file, required: false }
+      - { name: sources, label: Sources citées, widget: markdown, required: false }
+      - { name: draft, label: Brouillon, widget: boolean, default: false }
+
+  - name: axes
+    label: Axes d'action
+    folder: src/content/axes
+    create: false
+    fields:
+      - { name: title, label: Titre, widget: string }
+      - { name: order, label: Ordre, widget: number }
+      - { name: summary, label: Résumé, widget: text }
+      - { name: body, label: Texte, widget: markdown }
+
+  - name: reglages
+    label: Réglages
+    files:
+      - name: site
+        label: Informations de l'association
+        file: src/data/site.json
+        fields:
+          - { name: name, label: Nom, widget: string }
+          - { name: rna, label: Numéro RNA, widget: string }
+          - { name: address, label: Adresse du siège, widget: string }
+          - { name: email, label: Email de contact, widget: string }
+          - { name: securityEmail, label: Email chiffré (témoignages), widget: string, required: false }
+          - { name: donateUrl, label: Lien de don (HelloAsso), widget: string, required: false }
+          - { name: joinUrl, label: Lien d'adhésion, widget: string, required: false }

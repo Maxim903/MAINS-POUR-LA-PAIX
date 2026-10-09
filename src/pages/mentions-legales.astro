@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+---
+<BaseLayout title="Mentions légales">
+  <article class="mx-auto max-w-6xl px-6 pt-16 prose-site">
+    <h1 class="text-4xl font-semibold">Mentions légales</h1>
+    <h2>Éditeur</h2>
+    <p>{site.name}, association loi 1901, numéro RNA {site.rna}. Siège social : {site.address}. Déclarée à la sous-préfecture de Saint-Germain-en-Laye le 23 novembre 2025 (Journal officiel du 9 décembre 2025, annonce n° 2380).</p>
+    <p>Contact : <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <h2>Directeur ou directrice de la publication</h2>
+    <p><em>À compléter : nom du ou de la président·e.</em></p>
+    <h2>Hébergeur</h2>
+    <p>Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis (à ajuster selon l'hébergeur choisi).</p>
+  </article>
+</BaseLayout>

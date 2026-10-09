@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import site from '../data/site.json';
+---
+<BaseLayout title="Contact et presse">
+  <div class="mx-auto max-w-6xl px-6 pt-16">
+    <h1 class="text-4xl font-semibold md:text-5xl">Contact et presse</h1>
+    <div class="prose-site">
+      <p>Écrivez-nous à <a href={`mailto:${site.email}`}>{site.email}</a> ou utilisez le formulaire.</p>
+      <h2>Vous détenez des informations sensibles ?</h2>
+      {site.securityEmail
+        ? <p>N'utilisez pas le formulaire. Écrivez à l'adresse chiffrée <a href={`mailto:${site.securityEmail}`}>{site.securityEmail}</a>.</p>
+        : <p>Un canal sécurisé sera indiqué ici prochainement. D'ici là, n'envoyez pas d'informations sensibles par email ou via le formulaire.</p>}
+    </div>
+    <div class="mt-10"><ContactForm /></div>
+  </div>
+</BaseLayout>

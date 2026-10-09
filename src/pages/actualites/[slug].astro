@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fmtDate } from '../../i18n/utils';
+export async function getStaticPaths() {
+  const news = await getCollection('actualites', ({ data }) => !data.draft);
+  return news.map((n) => ({ params: { slug: n.id }, props: { n } }));
+}
+const { n } = Astro.props;
+const { Content } = await render(n);
+---
+<BaseLayout title={n.data.title} description={n.data.summary}>
+  <article class="mx-auto max-w-6xl px-6 pt-16 prose-site">
+    <p class="text-sm text-nuit/70">{fmtDate(n.data.date)}</p>
+    <h1 class="mt-2 text-4xl font-semibold md:text-5xl">{n.data.title}</h1>
+    <Content />
+  </article>
+</BaseLayout>

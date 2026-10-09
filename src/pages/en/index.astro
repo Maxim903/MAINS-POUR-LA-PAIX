@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import AxesAction from '../../components/AxesAction.astro';
+import Publications from '../../components/Publications.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import { getT } from '../../i18n/utils';
+const t = getT('en');
+---
+<BaseLayout lang="en" title="Home">
+  <Hero lang="en" />
+  <AxesAction lang="en" />
+  <section class="mx-auto max-w-6xl px-6 pt-20">
+    <h2 class="text-3xl font-semibold md:text-4xl">{t.sections.latest}</h2>
+    <div class="mt-6"><Publications lang="en" limit={3} /></div>
+  </section>
+  <CallToAction lang="en" />
+</BaseLayout>
